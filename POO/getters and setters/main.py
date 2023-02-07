@@ -33,9 +33,7 @@ class Produto:
 
 
 p1 = Produto('Chave', 10)
-
 p1.desconto(50)
-
 p1.cabecalho()
 
 p2 = Produto('notebook', 'R$15')
