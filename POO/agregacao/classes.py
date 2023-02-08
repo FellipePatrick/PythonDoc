@@ -2,6 +2,11 @@ class Carrinho:
     def __init__(self) -> None:
         self.__produtos = []
     
+    @property
+    def produtos(self):
+        for i in self.__produtos:
+            print(i[0], i[1])
+    
     def listar(self):
         for i in self.__produtos:
             print(i[0], i[1])
