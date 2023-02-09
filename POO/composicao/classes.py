@@ -27,9 +27,17 @@ class Cliente:
     
 class Endereco:
     def __init__(self, cidade, estado) -> None:
-        self.cidade = cidade
-        self.estado = estado
+        self.__cidade = cidade
+        self.__estado = estado
+
+    @property
+    def cidade(self):
+        return self.__cidade
+    
+    @property
+    def estado(self):
+        return self.__estado
     
     def __del__(self):
-        print(f'{self.cidade}/{self.estado} FOI APAGADO')
+        print(f'{self.__cidade}/{self.__estado} FOI APAGADO')
 
