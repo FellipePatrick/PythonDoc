@@ -24,4 +24,22 @@ def newTask(request):
         form = TaskForm()
         return render(request, 'tasks/addtask.html', {'form':form})
 
-# Create your views here.
+
+
+def editTask(request, id):
+    task = get_list_or_404(Task, pk=id)
+    form = TaskForm()
+    for i in task:
+        title = i.title
+
+    if(request.method == 'POST'):
+        form = TaskForm(request.POST)
+        if form.is_valid():
+            task = form.save(commit=False)
+            task.done = 'doing'
+            task.save()
+            return redirect('/') 
+        else: 
+            return render(request, 'tasks/edittask.html', {'form':form, 'title':title})
+    else:
+        return render(request, 'tasks/edittask.html', {'form':form, 'title':title})
